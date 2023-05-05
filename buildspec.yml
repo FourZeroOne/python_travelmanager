@@ -22,4 +22,4 @@ phases:
       - python -m build
   post_build:
     commands:
-      - twine upload dist/*
+      - twine upload dist/* -u TOKEN -p "${PYPI_TOKEN}"

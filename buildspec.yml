@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   secrets-manager:
-    PYPI_TOKEN: "arn:aws:secretsmanager:eu-central-1:495963541969:secret:prod/pypi-GO6Dnm"
+    PYPI_TOKEN: arn:aws:secretsmanager:eu-central-1:495963541969:secret:prod/pypi-GO6Dnm:pypi-token
 
 phases:
   install:

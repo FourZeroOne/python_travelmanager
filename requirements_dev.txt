@@ -1,0 +1,12 @@
+-e .
+pymongo[srv]
+
+pylint
+pre-commit
+pytest
+pytest-cov
+black
+pyhamcrest
+flake8
+
+build

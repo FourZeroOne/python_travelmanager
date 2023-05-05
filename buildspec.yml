@@ -7,7 +7,7 @@ env:
 phases:
   install:
     runtime-versions:
-      python: 3.9
+      python: 3.10
   pre_build:
     commands:
       - curr_working_dir=`pwd`
@@ -16,7 +16,7 @@ phases:
       - python3 -m venv venv
       - source venv/bin/activate
       - python3 -m pip install --upgrade pip
-      - pip3 install urllib3<2 twine build --upgrade
+      - pip3 install twine build --upgrade
   build:
     commands:
       - python3 -m build

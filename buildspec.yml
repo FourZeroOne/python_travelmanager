@@ -15,4 +15,4 @@ phases:
             - python3 -m build
     post_build:
         commands:
-            - twine upload --repository codeartifact dist/*
+            - twine upload dist/*

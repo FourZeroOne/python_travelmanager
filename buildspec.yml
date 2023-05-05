@@ -14,15 +14,13 @@ phases:
       - sed -i "s/TOKEN_REPLACE/${PYPI_TOKEN}/g" $curr_working_dir/.pypirc
       # - export PIP_CONFIG_FILE=$curr_working_dir/.pypirc
       - python --version
-      - python -m venv venv
+      - python -m venv $curr_working_dir/venv
       - source $curr_working_dir/venv/bin/activate
       - python -m pip install --upgrade pip
-      - pip --version
-      - pip3 --version
-      - pip3 install twine build --upgrade
+      - pip install twine build --upgrade
   build:
     commands:
-      - python3 -m build
+      - python -m build
   post_build:
     commands:
       - twine upload dist/*

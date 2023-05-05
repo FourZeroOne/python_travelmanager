@@ -12,7 +12,6 @@ phases:
     commands:
       - curr_working_dir=`pwd`
       - sed -i "s/TOKEN_REPLACE/${PYPI_TOKEN}/g" $curr_working_dir/.pypirc
-      - cat $curr_working_dir/.pypirc
       # - export PIP_CONFIG_FILE=$curr_working_dir/.pypirc
       - python3 -m venv venv
       - source venv/bin/activate

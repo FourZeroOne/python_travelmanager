@@ -10,16 +10,13 @@ phases:
       python: 3.11
   pre_build:
     commands:
-      - curr_working_dir=`pwd`
-      - sed -i "s/TOKEN_REPLACE/${PYPI_TOKEN}/g" $curr_working_dir/.pypirc
-      - export PIP_CONFIG_FILE=$curr_working_dir/.pypirc
       - python -m venv venv
       - . venv/bin/activate
       - python -m pip install --upgrade pip
-      - pip install twine build --upgrade
+      - pip install requests==2.28.0 twine build --upgrade
   build:
     commands:
       - python -m build
   post_build:
     commands:
-      - twine upload dist/* -u __token__ -p "${PYPI_TOKEN}"
+      - twine upload dist/* -u __token__ -p "${PYPI_TOKEN}" --force

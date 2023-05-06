@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   secrets-manager:
-    PYPI_TOKEN: "prod/pypi-GO6Dnm:pypi-token"
+    PYPI_TOKEN: "prod/pypi:pypi-token"
 
 phases:
   install:

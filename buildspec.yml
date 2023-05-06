@@ -10,8 +10,8 @@ phases:
       python: 3.9
   pre_build:
     commands:
-      - echo ${CODEBUILD_SOURCE_VERSION}
-      - echo $CODEBUILD_SOURCE_VERSION
+      - BRANCH=$(echo $CODEBUILD_WEBHOOK_BASE_REF | sed 's/refs\/heads\///')
+      - echo branch $BRANCH
       - python -m venv venv
       - . venv/bin/activate
       - python -m pip install --upgrade pip

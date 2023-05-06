@@ -10,6 +10,10 @@ phases:
       python: 3.9
   pre_build:
     commands:
+      - git rev-parse HEAD
+      - echo $GITHUB_ACTOR
+      - git merge-base HEAD main
+      - pwd
       - python -m venv venv
       - . venv/bin/activate
       - python -m pip install --upgrade pip

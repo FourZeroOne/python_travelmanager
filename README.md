@@ -9,3 +9,4 @@ pre-commit install --hook-type pre-push
 
 ## build
 python -m build
+TEST

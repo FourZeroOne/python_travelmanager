@@ -12,6 +12,7 @@ phases:
     commands:
       - BRANCH=$(echo $CODEBUILD_WEBHOOK_BASE_REF | sed 's/refs\/heads\///')
       - echo branch $BRANCH
+      - echo branch $CODEBUILD_WEBHOOK_BASE_REF
       - python -m venv venv
       - . venv/bin/activate
       - python -m pip install --upgrade pip

@@ -10,10 +10,10 @@ phases:
       python: 3.9
   pre_build:
     commands:
-      - git rev-parse HEAD
-      - echo $GITHUB_ACTOR
-      - git merge-base HEAD main
-      - pwd
+      - echo $CODEBUILD_RESOLVED_SOURCE_VERSION
+      - echo $CODEBUILD_INITIATOR
+      - git merge-base $CODEBUILD_SOURCE_VERSION $CODEBUILD_SOURCE_BRANCH
+      - echo $CODEBUILD_SRC_DIR
       - python -m venv venv
       - . venv/bin/activate
       - python -m pip install --upgrade pip

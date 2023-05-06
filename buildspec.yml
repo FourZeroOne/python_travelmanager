@@ -10,11 +10,6 @@ phases:
       python: 3.9
   pre_build:
     commands:
-      - echo $CODEBUILD_RESOLVED_SOURCE_VERSION
-      - echo $CODEBUILD_INITIATOR
-      - echo $CODEBUILD_SRC_DIR
-      - export ACTOR_ID=$(echo $CODEBUILD_INITIATOR | cut -d'/' -f2)
-      - echo $ACTOR_ID
       - python -m venv venv
       - . venv/bin/activate
       - python -m pip install --upgrade pip

@@ -9,7 +9,7 @@ class TestTravelManagerAPI:
         connect_for_ut()
         assert TravelManagerAPI.api_url == "https://test_url/q"
         assert TravelManagerAPI.portal_id == "test_portal_id"
-        assert TravelManagerAPI.token == "test_token"
+        assert TravelManagerAPI.token == "test_token"  # noqa
         assert TravelManagerAPI.basic_params == {
             "portal": "test_portal_id",
             "token": "test_token",

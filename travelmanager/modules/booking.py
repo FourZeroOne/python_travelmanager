@@ -1,4 +1,3 @@
-import json
 from datetime import date
 from ..travelmanager_api import TravelManagerAPI
 

@@ -11,7 +11,7 @@ paths = ["travelmanager", "tests"]
 sort_by_size = true
 
 [tool.bandit.assert_used]
-skips = ["*/test_*.py"]
+skips = ["tests/*"]
 
 [build-system]
 requires = ["hatchling"]

@@ -19,7 +19,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "python_travelmanager"
-version = "0.2.5"
+version = "1.0.0"
 authors = [
     { name="Johannes Eimer", email="johannes.eimer@jep-dev.com" },
 ]

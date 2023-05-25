@@ -24,7 +24,7 @@ repos:
       rev: 1.7.5
       hooks:
         - id: bandit
-          args: [ -v, -r, ./travelmanager, ./tests, --configfile pyproject.toml]
+          args: [ -v, --configfile, pyproject.toml, -r, ./travelmanager, ./tests]
 
     #- repo: local
     #  hooks:

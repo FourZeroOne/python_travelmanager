@@ -10,6 +10,9 @@ min_confidence = 80
 paths = ["travelmanager", "tests"]
 sort_by_size = true
 
+[tool.bandit.assert_used]
+skips = ["*/test_*.py"]
+
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"

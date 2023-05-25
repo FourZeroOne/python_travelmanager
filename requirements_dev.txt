@@ -8,5 +8,6 @@ pytest-cov
 black
 pyhamcrest
 flake8
+python-dotenv
 
 build

@@ -26,6 +26,7 @@ class TravelManagerAPI:
                 "call": endpoint,
             }
         )
+        print(params)
 
         # set log level to debug
         requests_log = logging.getLogger("requests.packages.urllib3")
@@ -35,7 +36,7 @@ class TravelManagerAPI:
         return requests.get(TravelManagerAPI.api_url, params=params).json()
 
     @staticmethod
-    def post(endpoint, params={}):
+    def post(endpoint, params={}, data={}):
         params = (
             TravelManagerAPI.basic_params
             | params
@@ -49,24 +50,9 @@ class TravelManagerAPI:
         requests_log.setLevel(logging.DEBUG)
         requests_log.propagate = True
 
-        return requests.post(TravelManagerAPI.api_url, params=params).json()
-
-    @staticmethod
-    def delete(endpoint, params={}):
-        params = (
-            TravelManagerAPI.basic_params
-            | params
-            | {
-                "call": endpoint,
-            }
-        )
-
-        # set log level to debug
-        requests_log = logging.getLogger("requests.packages.urllib3")
-        requests_log.setLevel(logging.DEBUG)
-        requests_log.propagate = True
-
-        return requests.get(TravelManagerAPI.api_url, params=params).json()
+        return requests.post(
+            TravelManagerAPI.api_url, json=data, params=params
+        ).json()
 
 
 # URL = peters-test.travelmanager.software

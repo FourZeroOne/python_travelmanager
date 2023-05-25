@@ -1,12 +1,12 @@
-import pytest
 import requests
 from unittest.mock import patch
+from tests.utils import connect_for_ut
 from travelmanager.travelmanager_api import TravelManagerAPI
 
 
 class TestTravelManagerAPI:
     def test_connect(self):
-        TravelManagerAPI.connect("test_url", "test_portal_id", "test_token")
+        connect_for_ut()
         assert TravelManagerAPI.api_url == "https://test_url/q"
         assert TravelManagerAPI.portal_id == "test_portal_id"
         assert TravelManagerAPI.token == "test_token"
@@ -15,6 +15,30 @@ class TestTravelManagerAPI:
             "token": "test_token",
         }
 
+    @patch.object(requests, "get")
+    def test_get(self, get_mock):
+        connect_for_ut()
+
+        get_mock.return_value.json.return_value = {"value": "test"}
+        # act
+        actual = TravelManagerAPI.get("test")
+        # assert
+        assert actual == {"value": "test"}
+
+    """
+    @patch.object(requests, "get")
+    def test_get_error(self, get_mock):
+        TravelManagerAPI.connect("test", "test_portal_id", "test_token")
+        mock_response = MagicMock()
+        mock_response.raise_for_status.side_effect = (
+            requests.exceptions.HTTPError("Mocked 500 error")
+        )
+        get_mock.return_value = mock_response
+
+        with pytest.raises(requests.exceptions.HTTPError):
+            response = TravelManagerAPI.get("test")
+            response.raise_for_status()
+    """
     """
     def test_get(self):
         # arrange

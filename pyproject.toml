@@ -19,13 +19,13 @@ build-backend = "hatchling.build"
 
 [project]
 name = "python_travelmanager"
-version = "1.0.0"
+version = "1.0.1"
 authors = [
     { name="Johannes Eimer", email="johannes.eimer@jep-dev.com" },
 ]
 description = "Python TravelManager"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.9"
 license = "MIT"
 keywords = ['Python', 'TravelManager']
 dependencies = [

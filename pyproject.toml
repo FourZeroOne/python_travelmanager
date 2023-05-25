@@ -30,7 +30,7 @@ license = "MIT"
 keywords = ['Python', 'TravelManager']
 dependencies = [
     "urllib3==1.26.15",
-    "requests==2.30.0",
+    "requests==2.31.0",
 ]
 
 [tool.hatch.build.targets.sdist]

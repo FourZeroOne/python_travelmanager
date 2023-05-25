@@ -33,7 +33,9 @@ class TravelManagerAPI:
         requests_log.setLevel(logging.DEBUG)
         requests_log.propagate = True
 
-        return requests.get(TravelManagerAPI.api_url, params=params).json()
+        return requests.get(
+            TravelManagerAPI.api_url, params=params, timeout=5
+        ).json()
 
     @staticmethod
     def post(endpoint, params={}, data={}):
@@ -51,7 +53,7 @@ class TravelManagerAPI:
         requests_log.propagate = True
 
         return requests.post(
-            TravelManagerAPI.api_url, json=data, params=params
+            TravelManagerAPI.api_url, json=data, params=params, timeout=5
         ).json()
 
 

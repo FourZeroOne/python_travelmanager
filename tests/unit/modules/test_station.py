@@ -20,4 +20,5 @@ class TestStation:
                 "token": "test_token",
                 "call": "fetchstations",
             },
+            timeout=5,
         )

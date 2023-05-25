@@ -25,4 +25,5 @@ class TestAvailabilty:
                 "stop": "test_stop_date",
                 "call": "availability",
             },
+            timeout=5,
         )

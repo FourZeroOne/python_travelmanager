@@ -42,6 +42,7 @@ class TestBooking:
                 "token": "test_token",
                 "call": "booking",
             },
+            timeout=5,
         )
 
     @patch.object(requests, "get")
@@ -59,4 +60,5 @@ class TestBooking:
                 "call": "cancel",
                 "booking_reference": "test_booking_id",
             },
+            timeout=5,
         )

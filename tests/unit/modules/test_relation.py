@@ -22,4 +22,5 @@ class TestRelation:
                 "date": "test_date",
                 "call": "relations",
             },
+            timeout=5,
         )

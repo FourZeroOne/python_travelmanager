@@ -1,6 +1,4 @@
 -e .
-pymongo[srv]
-
 pylint
 pre-commit
 pytest
@@ -9,5 +7,3 @@ black
 pyhamcrest
 flake8
 python-dotenv
-
-build

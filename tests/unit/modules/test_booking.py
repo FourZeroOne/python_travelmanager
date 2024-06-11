@@ -7,7 +7,7 @@ from travelmanager.schemas import Ticket
 
 
 class TestBooking:
-    @patch.object(requests, "post")
+    @patch.object(requests.Session, "post")
     def test_create(self, post_mock):
         connect_for_ut()
         post_mock.return_value.json.return_value = {"value": "test"}
@@ -45,7 +45,7 @@ class TestBooking:
             timeout=5,
         )
 
-    @patch.object(requests, "get")
+    @patch.object(requests.Session, "get")
     def test_delete(self, get_mock):
         connect_for_ut()
         get_mock.return_value.json.return_value = {"value": "test"}

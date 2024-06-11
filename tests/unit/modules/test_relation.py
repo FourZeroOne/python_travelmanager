@@ -6,7 +6,7 @@ from travelmanager import Relation
 
 
 class TestRelation:
-    @patch.object(requests, "get")
+    @patch.object(requests.Session, "get")
     def test_get(self, get_mock):
         connect_for_ut()
         get_mock.return_value.json.return_value = {"value": "test"}
@@ -18,7 +18,7 @@ class TestRelation:
             params={
                 "portal": "test_portal_id",
                 "token": "test_token",
-                "station": "test_station",
+                "station_id": "test_station",
                 "date": "test_date",
                 "call": "relations",
             },

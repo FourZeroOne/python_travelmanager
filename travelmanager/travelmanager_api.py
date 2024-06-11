@@ -5,6 +5,8 @@ import logging
 logging.basicConfig()
 logging.getLogger().setLevel(logging.DEBUG)
 
+SESSION = requests.Session()
+
 
 class TravelManagerAPI:
     @classmethod
@@ -33,7 +35,7 @@ class TravelManagerAPI:
         requests_log.setLevel(logging.DEBUG)
         requests_log.propagate = True
 
-        return requests.get(
+        return SESSION.get(
             TravelManagerAPI.api_url, params=params, timeout=5
         ).json()
 
@@ -52,7 +54,7 @@ class TravelManagerAPI:
         requests_log.setLevel(logging.DEBUG)
         requests_log.propagate = True
 
-        return requests.post(
+        return SESSION.post(
             TravelManagerAPI.api_url, json=data, params=params, timeout=5
         ).json()
 

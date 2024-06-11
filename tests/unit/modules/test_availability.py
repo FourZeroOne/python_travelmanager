@@ -6,7 +6,7 @@ from travelmanager import Availability
 
 
 class TestAvailabilty:
-    @patch.object(requests, "get")
+    @patch.object(requests.Session, "get")
     def test_get(self, get_mock):
         connect_for_ut()
         get_mock.return_value.json.return_value = {"value": "test"}

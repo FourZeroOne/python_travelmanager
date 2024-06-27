@@ -1,9 +1,5 @@
 import requests
-import logging
 
-
-logging.basicConfig()
-logging.getLogger().setLevel(logging.DEBUG)
 
 SESSION = requests.Session()
 
@@ -28,12 +24,6 @@ class TravelManagerAPI:
                 "call": endpoint,
             }
         )
-        print(params)
-
-        # set log level to debug
-        requests_log = logging.getLogger("requests.packages.urllib3")
-        requests_log.setLevel(logging.DEBUG)
-        requests_log.propagate = True
 
         return SESSION.get(
             TravelManagerAPI.api_url, params=params, timeout=5
@@ -49,16 +39,6 @@ class TravelManagerAPI:
             }
         )
 
-        # set log level to debug
-        requests_log = logging.getLogger("requests.packages.urllib3")
-        requests_log.setLevel(logging.DEBUG)
-        requests_log.propagate = True
-
         return SESSION.post(
             TravelManagerAPI.api_url, json=data, params=params, timeout=5
         ).json()
-
-
-# URL = peters-test.travelmanager.software
-# portal=1000572&
-# token=e017243b9113ca6d81ed3e9c03defb56357d2693549441cf1a6e8ab4ac62d284

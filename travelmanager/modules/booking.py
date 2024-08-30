@@ -24,6 +24,7 @@ class Booking:
             "booking_reference": reference,
             "remarks": remarks,
         }
+        print(data)
         return TravelManagerAPI.post("booking", data=data)
 
     @staticmethod

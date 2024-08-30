@@ -25,9 +25,15 @@ class TravelManagerAPI:
             }
         )
 
-        return SESSION.get(
+        response = SESSION.get(
             TravelManagerAPI.api_url, params=params, timeout=5
-        ).json()
+        )
+        print(response)
+        response.raise_for_status()
+        data = response.json()
+        if "errorCode" in data:
+            raise Exception('ErrorCode: "{}" Error: "{}"'.format(data["errorCode"], data["errorCode"]))
+        return data
 
     @staticmethod
     def post(endpoint, params={}, data={}):
@@ -39,6 +45,11 @@ class TravelManagerAPI:
             }
         )
 
-        return SESSION.post(
+        response = SESSION.post(
             TravelManagerAPI.api_url, json=data, params=params, timeout=5
-        ).json()
+        )
+        response.raise_for_status()
+        data = response.json()
+        if "errorCode" in data:
+            raise Exception('ErrorCode: "{}" Error: "{}"'.format(data["errorCode"], data["errorCode"]))
+        return data
